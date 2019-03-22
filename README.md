@@ -12,6 +12,8 @@ Please install Ack Ag or Pt first.
 
 ## Extension Settings
 
+Command: extension.ack.search
+
 ## Known Issues
 
 Does not support windows platform now.
