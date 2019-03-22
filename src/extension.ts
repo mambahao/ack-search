@@ -50,9 +50,6 @@ export function activate(context: ExtensionContext) {
                       const num = arr[1].trim();
                       const code = arr.slice(2).join('').trim().substring(0, 50);
 
-                      console.info('=========================');
-                      console.info(value, path, num, code);
-
                       items.push(new FileItem(path, parseInt(num), code));
                     }
                   }
@@ -64,7 +61,6 @@ export function activate(context: ExtensionContext) {
               });
             } catch(e) {
               input.busy = false;
-              console.error(e);
             }
           } else {
             input.busy = true;
