@@ -20,7 +20,7 @@ Does not support windows platform now.
 
 ### 0.0.1
 
-Initial release of ...
+Initial release
 
 -----------------------------------------------------------------------------------------------------------
 
