@@ -24,6 +24,15 @@ Does not support windows platform now.
 
 Initial release
 
+### 0.0.2
+
+Remove debug information
+
+### 0.0.3
+
+Bugs fixd
+
+
 -----------------------------------------------------------------------------------------------------------
 
 ### For more information

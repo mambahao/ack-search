@@ -14,7 +14,7 @@ export class FileItem implements QuickPickItem {
 	description: string;
 
 	constructor(public path: string, public num: number, public code: string) {
-		this.label = `${path}:${num}`;
-		this.description = code;
+		this.label = code;
+		this.description = `${path}:${num}`;
   }
 }

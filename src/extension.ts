@@ -37,27 +37,39 @@ export function activate(context: ExtensionContext) {
           if(value && value.length > 1) {
             const items: Array<FileItem> = [];
             input.busy = true;
-            exec(`${command} ${value}`, { cwd: rootPath }, (err: Error | null, stdout: string, stderr: string) => {
-              const list = stdout.split('\n');
-              list.forEach((g) => {
-                if(g.indexOf('* Filename') < 0 && g.indexOf('* Path') < 0) {
-                  const arr = g.split(':');
-                  if(arr && arr.length > 2) {
-                    const path = arr[0].trim();
-                    const num = arr[1].trim();
-                    const code = arr.slice(2).join('').trim();
 
-                    items.push(new FileItem(path, parseInt(num), code));
+            try {
+              exec(`${command} ${value}`, { cwd: rootPath }, (err: Error | null, stdout: string, stderr: string) => {
+                let list = stdout.split('\n');
+                list = list.splice(0, 20);
+                list.forEach((g) => {
+                  if(g.indexOf('* Filename') < 0 && g.indexOf('* Path') < 0 && g.length > 1) {
+                    const arr = g.split(':');
+                    if(arr && arr.length > 2) {
+                      const path = arr[0].trim();
+                      const num = arr[1].trim();
+                      const code = arr.slice(2).join('').trim().substring(0, 50);
+
+                      console.info('=========================');
+                      console.info(value, path, num, code);
+
+                      items.push(new FileItem(path, parseInt(num), code));
+                    }
                   }
-                }
+                });
+
+                input.items = items;
+
+                input.busy = false;
               });
-
-              input.items = items;
-
+            } catch(e) {
               input.busy = false;
-            });
+              console.error(e);
+            }
           } else {
+            input.busy = true;
             input.items = [];
+            input.busy = false;
           }
         });
 
