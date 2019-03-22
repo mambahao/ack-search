@@ -28,7 +28,7 @@ export function activate(context: ExtensionContext) {
       }
 
       if (command !== '') {
-        window.showInformationMessage(`Founded install command ${command}`);
+        // window.showInformationMessage(`Founded install command ${command}`);
 
         const input = window.createQuickPick<FileItem>();
         input.placeholder = 'Type to search';
