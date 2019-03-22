@@ -1,4 +1,4 @@
-# ack-search README
+# Ack Search README
 
 Vscode fizzy search extension use ack ag or pt.
 
