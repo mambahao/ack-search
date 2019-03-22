@@ -14,6 +14,8 @@ Please install Ack Ag or Pt first.
 
 ## Known Issues
 
+Does not support windows platform now.
+
 ## Release Notes
 
 Users appreciate release notes as you update your extension.
