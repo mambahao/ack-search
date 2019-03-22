@@ -3,6 +3,7 @@
   "displayName": "ACK Search",
   "description": "",
   "version": "0.0.1",
+  "publisher": "JustinHao",
   "engines": {
     "vscode": "^1.30.0"
   },
