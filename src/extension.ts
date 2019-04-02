@@ -34,14 +34,13 @@ export function activate(context: ExtensionContext) {
         input.placeholder = 'Type to search';
 
         input.onDidChangeValue(value => {
-          if(value && value.length > 1) {
+          if(value && value.length > 2) {
             const items: Array<FileItem> = [];
             input.busy = true;
 
             try {
               exec(`${command} ${value}`, { cwd: rootPath }, (err: Error | null, stdout: string, stderr: string) => {
-                let list = stdout.split('\n');
-                list = list.splice(0, 20);
+                const list = stdout.split('\n');
                 list.forEach((g) => {
                   if(g.indexOf('* Filename') < 0 && g.indexOf('* Path') < 0 && g.length > 1) {
                     const arr = g.split(':');
