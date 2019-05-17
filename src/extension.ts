@@ -5,6 +5,12 @@ import { exec } from 'child_process';
 
 const ce = require('command-exists');
 
+
+function haveChineseChar(str: string) {
+  const reg = /[\u4E00-\u9FA5\uF900-\uFA2D]/;
+  return reg.test(str);
+}
+
 export function activate(context: ExtensionContext) {
   let disposable = commands.registerCommand('extension.ack.search', () => {
     let hasAck: boolean = false;
@@ -34,7 +40,13 @@ export function activate(context: ExtensionContext) {
         input.placeholder = 'Type to search';
 
         input.onDidChangeValue(value => {
-          if(value && value.length > 2) {
+          let ignoreLength = 2;
+
+          if(haveChineseChar(value)) {
+            ignoreLength = 1;
+          }
+
+          if(value && value.length > ignoreLength) {
             const items: Array<FileItem> = [];
             input.busy = true;
 
