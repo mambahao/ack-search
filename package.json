@@ -2,7 +2,7 @@
   "name": "ack-search",
   "displayName": "ACK Search",
   "description": "",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "JustinHao",
   "engines": {
     "vscode": "^1.30.0"
