@@ -36,6 +36,16 @@ Bugs fixd
 
 Bugs fixd
 
+### 0.0.5
+
+Support Chinese
+
+### 0.0.6
+
+Support Punctuation
+
+
+
 -----------------------------------------------------------------------------------------------------------
 
 ### For more information

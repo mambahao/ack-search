@@ -51,7 +51,7 @@ export function activate(context: ExtensionContext) {
             input.busy = true;
 
             try {
-              exec(`${command} ${value}`, { cwd: rootPath }, (err: Error | null, stdout: string, stderr: string) => {
+              exec(`${command} '${value}'`, { cwd: rootPath }, (err: Error | null, stdout: string, stderr: string) => {
                 const list = stdout.split('\n');
                 list.forEach((g) => {
                   if(g.indexOf('* Filename') < 0 && g.indexOf('* Path') < 0 && g.length > 1) {
